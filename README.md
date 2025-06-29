@@ -1,84 +1,78 @@
-📊 Hotel Booking Demand Analysis
-This project performs Exploratory Data Analysis (EDA) on the hotel_bookings.csv dataset. The goal is to understand booking patterns, customer behavior, and operational insights such as cancellations, room assignments, and guest demographics.
+# 🏨 Hotel Booking Demand Analysis
 
-📁 Dataset Overview
-The dataset contains 119,390 rows and 32 columns related to bookings for two types of hotels:
+This repository contains exploratory data analysis (EDA) of the [Hotel Booking Demand Dataset](https://www.sciencedirect.com/science/article/pii/S2352340918315191), which includes information on bookings made at a city hotel and a resort hotel.
 
-City Hotel
+## 📂 Dataset
 
-Resort Hotel
+The dataset (`hotel_bookings.csv`) includes **119,390 records** and **32 features** such as:
 
-Key columns include:
+- Booking dates
+- Number of adults, children, and babies
+- Length of stay
+- Room types (reserved vs assigned)
+- Market segment
+- Booking cancellation status
+- Country of origin
+- Average daily rate (ADR)
 
-is_canceled
+---
 
-lead_time
+## 🔍 Project Goals
 
-arrival_date_year, month, day
+- Clean and prepare the data for analysis
+- Explore guest demographics and booking patterns
+- Identify relationships between booking features and cancellations
+- Visualize guest origin with a world map
+- Compare reserved vs assigned room types
+- Analyze guest arrival trends and market segments
 
-adults, children, babies
+---
 
-adr (Average Daily Rate)
+## ✅ Key Steps
 
-country
+### Data Cleaning
+- Removed bookings with 0 guests (`adults + children + babies == 0`)
+- Dropped duplicate rows
+- Converted date columns to a proper datetime format
+- Mapped months to numerical indices
 
-reserved_room_type, assigned_room_type
+### Feature Analysis
+- Descriptive statistics of `lead_time`, `adr`, `total_of_special_requests`
+- Quantile analysis of booking behavior
+- Guest arrival trends over time
 
-market_segment
+### Visualizations
+- 📌 **Choropleth map**: Guest countries of origin (Plotly)
+- 📌 **Cross-tab**: Reserved vs assigned room types
+- 📌 **Pie chart**: Market segment share
+- 📌 **Bar chart**: ADR per market segment and room type
+- 📌 **Line plot + KDE**: Total guest arrivals per day
 
-reservation_status, etc.
+---
 
-✅ Project Highlights
-1. 🧼 Data Cleaning
-Removed bookings with zero guests (adults + children + babies == 0)
+## 📊 Example Visuals
 
-Removed duplicate rows
+- **Guest Country Map**  
+  ![choropleth](https://raw.githubusercontent.com/your-username/hotel-booking-analysis/main/assets/choropleth-example.png)
 
-Handled missing values (children, country, agent, company)
+- **Room Type Comparison**  
+  ![room mismatch](https://raw.githubusercontent.com/your-username/hotel-booking-analysis/main/assets/room-mismatch-example.png)
 
-2. 📈 Descriptive Statistics
-Summary of lead_time, adr, and total_of_special_requests
+*(Update image paths if you add `assets/` folder with visuals)*
 
-Memory usage comparison with memory_usage='deep'
+---
 
-3. 📊 Feature Distribution (Quantiles)
-Computed 90th–100th percentile values for key features
+## 📦 Technologies
 
-Bug Fix: Quantile computation was corrected to i/100 from 1/100
+- Python (pandas, numpy)
+- Visualization: matplotlib, seaborn, plotly
+- Jupyter Notebook
 
-4. 🌍 Where Do the Guests Come From?
-Visualized using a Plotly Choropleth Map based on country field
+---
 
-Only included non-canceled bookings
+## ▶️ Getting Started
 
-5. 🛏️ Reserved vs Assigned Room Analysis
-Cross-tabulation to assess mismatch rate between reserved and assigned room types
-
-6. 📊 Market Segment Analysis
-Pie chart showing distribution of market segments
-
-Bar plot comparing ADR across segments and reserved room types
-
-7. 📅 Guest Arrivals Over Time
-Combined year, month, and day to create a proper arrival_date
-
-Total guests = adults + children + babies
-
-Line plot showing guest arrival trends
-
-KDE plot of daily total guest arrivals
-
-📦 Libraries Used
-pandas
-
-numpy
-
-matplotlib
-
-seaborn
-
-plotly and chart_studio
-
-
-📬 Contact
-For questions or suggestions, feel free to reach out to the project contributor.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/hotel-booking-analysis.git
+   cd hotel-booking-analysis
